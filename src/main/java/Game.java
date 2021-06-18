@@ -1,3 +1,5 @@
+import java.util.InputMismatchException;
+
 public class Game {
     private final Player player1 = new HumanPlayer("Misha");
     private final Player player2 = new Bot();
@@ -41,7 +43,11 @@ public class Game {
              card = player.pickCard();
         }
         catch (IllegalArgumentException e){
-            view.showMessage("Выбрана неправильная карта попробуйте еще раз");
+            view.showMessage("Выбрана неправильная карта, попробуйте еще раз");
+            return pickCard(player);
+        }
+        catch (InputMismatchException e){
+            view.showMessage("Введен некорректный символ, попробуйте еще раз");
             return pickCard(player);
         }
         return card;

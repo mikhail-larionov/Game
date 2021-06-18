@@ -3,7 +3,7 @@ import java.util.List;
 public class View {
     public void showAttackPhase(String playerName1, String playerName2, List<Integer> cards) {
         System.out.println();
-        System.out.println(playerName1 + " нападает, " + playerName2 + " защищается");
+        System.out.println(playerName1 + " атакует, " + playerName2 + " защищается");
         System.out.println(cards);
         System.out.println(playerName1 + " выбирает карту");
     }
