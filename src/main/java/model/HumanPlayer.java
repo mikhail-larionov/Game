@@ -1,24 +1,26 @@
-import java.util.ArrayList;
+package model;
+
 import java.util.List;
 import java.util.Scanner;
 
 public class HumanPlayer extends Player{
 
-    public HumanPlayer(String name) {
-        super(name);
+    public HumanPlayer() {
+
     }
 
     @Override
-    public int pickCard(){
+    public Card pickCard(){
         Scanner scanner = new Scanner(System.in);
-        int card = scanner.nextInt();
+        Card card = new Card(scanner.nextInt());
 
         if (!checkCardAvailability(card, getCards())){
                 throw new IllegalArgumentException();
             }
         return card;
     }
-    private boolean checkCardAvailability(int card, List<Integer> cards){
+
+    private boolean checkCardAvailability(Card card, List<Card> cards){
         return cards.contains(card);
     }
 
